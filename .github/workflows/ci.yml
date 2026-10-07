@@ -1,0 +1,30 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -r requirements.txt pytest
+      - run: pytest -q
+      - name: Validate manifests
+        run: |
+          python -c "import json;json.load(open('.claude-plugin/plugin.json'));json.load(open('.claude-plugin/marketplace.json'))"
+      - name: Check SKILL.md frontmatter
+        run: |
+          python - <<'PY'
+          import re
+          s = open('skills/quantforge-ai/SKILL.md').read()
+          m = re.match(r'---\nname: (.+)\ndescription: >\n(.*?)\n---', s, re.S)
+          assert m and m.group(1).strip() == 'quantforge-ai', 'bad frontmatter'
+          assert len(' '.join(m.group(2).split())) <= 1024, 'description too long'
+          PY

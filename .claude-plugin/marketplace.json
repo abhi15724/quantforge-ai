@@ -1,0 +1,11 @@
+{
+  "name": "quantforge-marketplace",
+  "owner": { "name": "MANIQUANT AI" },
+  "plugins": [
+    {
+      "name": "quantforge-ai",
+      "source": "./",
+      "description": "Quantitative trading agent orchestration: strategy pipeline, validation gates, risk limits, Indian/global/crypto/FX/commodity coverage."
+    }
+  ]
+}

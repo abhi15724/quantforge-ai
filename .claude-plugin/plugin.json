@@ -1,0 +1,28 @@
+{
+  "name": "quantforge-ai",
+  "version": "0.1.0",
+  "description": "Create and orchestrate expert quantitative trading agents across Indian and global markets, derivatives, statistical research, risk, and low-latency execution. Research and engineering only; never guarantees profit or places live orders on its own.",
+  "author": {
+    "name": "Abhi / MANIQUANT AI"
+  },
+  "keywords": [
+    "quant",
+    "quantitative-trading",
+    "algorithmic-trading",
+    "backtesting",
+    "walk-forward",
+    "risk-management",
+    "options",
+    "nse",
+    "nifty",
+    "bank-nifty",
+    "india",
+    "crypto",
+    "forex",
+    "claude-plugin",
+    "claude-skill",
+    "ai-agents"
+  ],
+  "homepage": "https://github.com/abhi15724/quantforge-ai",
+  "license": "MIT"
+}
